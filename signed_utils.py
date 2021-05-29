@@ -2,7 +2,7 @@
 
 
 import collections
-import numpy as np
+# import numpy as np
 # import networkx
 # import matplotlib.pyplot
 
@@ -116,7 +116,9 @@ def partition2solution(partition: dict, vnum: int, solution_type='list') -> dict
             solution[node] = idx
 
     if solution_type == 'array':
-        return np.array(solution)
+        print('The support of numpy is removed.')
+        return
+        # return np.array(solution)
     elif solution_type == 'dict':
         return {i: solution[i] for i in range(vnum)}
     else:
@@ -137,12 +139,12 @@ def solution2partition(solution: dict or np.array or list) -> dict:
         for node, comm in solution.items():
             partition[comm].add(node)
 
-    elif isinstance(solution, np.ndarray):
-        for node, comm in enumerate(solution):
-            if comm not in partition.keys():
-                partition[comm] = {node}
-            else:
-                partition[comm].add(node)
+#     elif isinstance(solution, np.ndarray):
+#         for node, comm in enumerate(solution):
+#             if comm not in partition.keys():
+#                 partition[comm] = {node}
+#             else:
+#                 partition[comm].add(node)
 
     elif isinstance(solution, list):
         for node, comm in enumerate(solution):
