@@ -38,7 +38,7 @@ def main(path, t=10):
 
     b = initial_values.index(min(initial_values))
     alg = multi_initialization[b]
-    best_values = alg.run(max_iter=150, output=False, multi_start=True)
+    best_values = alg.run(max_iter=150, output=True, multi_start=True)
     print(best_values)
     return best_values[-1]
     # plt.plot([t * 0.1 for t in range(700)], best_values)
